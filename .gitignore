@@ -1,0 +1,15 @@
+/ExcelCompare/Debug/*.log
+/Debug/*.ilk
+/Debug/*.exe
+/*.opendb
+/Debug/*.pdb
+/ExcelCompare/Debug/*.obj
+/ExcelCompare/Debug
+/ExcelCompare/Release
+/ipch/EXCELCOMPARE-2352ebe5/*.ipch
+/Release/*.ipdb
+/Release/*.iobj
+/Release
+/ExcelCompare/*.dll
+/ExcelCompare/~$example.xlsx
+/*.db
