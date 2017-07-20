@@ -2,8 +2,10 @@
 // ExcelCompareDlg.h : 头文件
 //
 
+
 #pragma once
 
+class CExcelCompareTools;
 
 // CExcelCompareDlg 对话框
 class CExcelCompareDlg : public CDialogEx
@@ -38,8 +40,12 @@ public:
     void initData();
     void doCompare();
     bool checkFileExist();
-    
+    void test();
+
 private:
     CString m_fileName1;
     CString m_fileName2;
+    CExcelCompareTools *m_pExcelComapreTools;
+public:
+    afx_msg void OnStnClickedStaticCont();
 };

@@ -247,6 +247,7 @@
     <ClInclude Include="..\..\xlnt\include\xlnt\xlnt.hpp" />
     <ClInclude Include="..\..\xlnt\include\xlnt\xlnt_config.hpp" />
     <ClInclude Include="..\othercode\othercode.h" />
+    <ClInclude Include="CExcelCompareTools.h" />
     <ClInclude Include="ExcelCompare.h" />
     <ClInclude Include="ExcelCompareDlg.h" />
     <ClInclude Include="Resource.h" />
@@ -254,6 +255,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CExcelCompareTools.cpp" />
     <ClCompile Include="ExcelCompare.cpp" />
     <ClCompile Include="ExcelCompareDlg.cpp" />
     <ClCompile Include="stdafx.cpp">

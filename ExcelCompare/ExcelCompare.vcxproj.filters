@@ -19,6 +19,9 @@
     <Filter Include="othercode">
       <UniqueIdentifier>{2fe8b037-0b20-464f-9966-c53f7e1c847e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="comparetools">
+      <UniqueIdentifier>{7afb39d4-3e56-4c0c-96ce-000fda2da3d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -213,6 +216,9 @@
     <ClInclude Include="..\othercode\othercode.h">
       <Filter>othercode</Filter>
     </ClInclude>
+    <ClInclude Include="CExcelCompareTools.h">
+      <Filter>comparetools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ExcelCompare.cpp">
@@ -223,6 +229,9 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CExcelCompareTools.cpp">
+      <Filter>comparetools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
