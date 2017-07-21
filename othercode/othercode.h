@@ -136,3 +136,49 @@ void UTF_8ToGB2312(char*pOut, char *pText, int pLen)
     pOut[j] = '\n';
     return;
 }
+
+bool DeleteFile(char * lpszPath)
+{
+    SHFILEOPSTRUCT FileOp = { 0 };
+    FileOp.fFlags = FOF_ALLOWUNDO |   //允许放回回收站
+        FOF_NOCONFIRMATION; //不出现确认对话框
+    FileOp.pFrom = CString(lpszPath);
+    FileOp.pTo = NULL;      //一定要是NULL
+    FileOp.wFunc = FO_DELETE;    //删除操作
+    return SHFileOperation(&FileOp) == 0;
+}
+//复制文件或文件夹
+bool CopyFile(char *pTo, char *pFrom)
+{
+    SHFILEOPSTRUCT FileOp = { 0 };
+    FileOp.fFlags = FOF_NOCONFIRMATION |   //不出现确认对话框
+        FOF_NOCONFIRMMKDIR; //需要时直接创建一个文件夹,不需用户确定
+    FileOp.pFrom = CString(pFrom);
+    FileOp.pTo = CString(pTo);
+    FileOp.wFunc = FO_COPY;
+    return SHFileOperation(&FileOp) == 0;
+}
+//移动文件或文件夹
+bool MoveFile(char *pTo, char *pFrom)
+{
+    SHFILEOPSTRUCT FileOp = { 0 };
+    FileOp.fFlags = FOF_NOCONFIRMATION |   //不出现确认对话框
+        FOF_NOCONFIRMMKDIR; //需要时直接创建一个文件夹,不需用户确定
+    FileOp.pFrom = CString(pFrom);
+    FileOp.pTo = CString(pTo);
+    FileOp.wFunc = FO_MOVE;
+    return SHFileOperation(&FileOp) == 0;
+}
+
+//从命名文件或文件夹
+bool ReNameFile(char *pTo, char *pFrom)
+{
+    SHFILEOPSTRUCT FileOp = { 0 };
+    FileOp.fFlags = FOF_NOCONFIRMATION;   //不出现确认对话框
+    FileOp.pFrom = CString(pFrom);
+    FileOp.pTo = CString(pTo);
+    FileOp.wFunc = FO_RENAME;
+    return SHFileOperation(&FileOp) == 0;
+}
+
+

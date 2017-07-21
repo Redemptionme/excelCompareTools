@@ -258,6 +258,21 @@ bool CExcelCompareDlg::checkFileExist() {
         MessageBox(tip);
         return false;
     }
+
+    /*TCHAR pBuf[MAX_PATH];
+    GetCurrentDirectory(MAX_PATH, pBuf);
+    CString path = pBuf;
+    path += "\\testFile\\1";
+    CString newfile1 = path;
+
+    int test = m_fileName1.ReverseFind('.');
+    CString tests;
+    for (int i = test; i < m_fileName1.GetLength(); ++i) {
+        tests += m_fileName1[i];
+    }
+    newfile1 += tests;
+
+    bool x =CopyFile(m_fileName1, newfile1, false);*/
     
     CEdit* pMessage2 = (CEdit*)GetDlgItem(IDC_OPEN_FILE_TXT_2);
     if (!pMessage2) {
