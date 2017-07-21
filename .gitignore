@@ -13,3 +13,5 @@
 /ExcelCompare/*.dll
 /ExcelCompare/~$example.xlsx
 /*.db
+/ExcelCompare/testFile/~$1.xlsx
+/ExcelCompare/testFile/~$2.xlsx

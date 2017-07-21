@@ -5,10 +5,10 @@
 
 #pragma once
 
-class CExcelCompareTools;
+#include "CExcelCompareTools.h"
 
 // CExcelCompareDlg 对话框
-class CExcelCompareDlg : public CDialogEx
+class CExcelCompareDlg : public CDialogEx,public IExcelCompareToolsDelegate
 {
 // 构造
 public:
@@ -40,12 +40,18 @@ public:
     void initData();
     void doCompare();
     bool checkFileExist();
+    void loadFile1();
+    void loadFile2();
     void test();
-
+    virtual void showTip(const char *str);
+    virtual void showLog(const char *str);
 private:
     CString m_fileName1;
     CString m_fileName2;
     CExcelCompareTools *m_pExcelComapreTools;
 public:
     afx_msg void OnStnClickedStaticCont();
+    afx_msg void OnBnClickedCancel();
+    afx_msg void OnBnClickedCancel2();
+    afx_msg void OnBnClickedCancel3();
 };
