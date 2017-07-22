@@ -259,21 +259,6 @@ bool CExcelCompareDlg::checkFileExist() {
         return false;
     }
 
-    /*TCHAR pBuf[MAX_PATH];
-    GetCurrentDirectory(MAX_PATH, pBuf);
-    CString path = pBuf;
-    path += "\\testFile\\1";
-    CString newfile1 = path;
-
-    int test = m_fileName1.ReverseFind('.');
-    CString tests;
-    for (int i = test; i < m_fileName1.GetLength(); ++i) {
-        tests += m_fileName1[i];
-    }
-    newfile1 += tests;
-
-    bool x =CopyFile(m_fileName1, newfile1, false);*/
-    
     CEdit* pMessage2 = (CEdit*)GetDlgItem(IDC_OPEN_FILE_TXT_2);
     if (!pMessage2) {
         return false;
@@ -285,6 +270,8 @@ bool CExcelCompareDlg::checkFileExist() {
         MessageBox(tip);
         return false;
     }
+
+    makeTempFile();
 
     CString key;
     string skey;
@@ -302,6 +289,35 @@ bool CExcelCompareDlg::checkFileExist() {
     m_pExcelComapreTools->setSheetName(skey);
     
     return true;
+}
+
+void CExcelCompareDlg::makeTempFile() {
+    TCHAR pBuf[MAX_PATH];
+    GetCurrentDirectory(MAX_PATH, pBuf);
+    CString path = pBuf;
+    path += "\\";
+    
+    CString newfile1 = path;
+    newfile1 += "1";
+    int fileFomart1 = m_fileName1.ReverseFind('.');
+    CString tests;
+    for (int i = fileFomart1; i < m_fileName1.GetLength(); ++i) {
+        tests += m_fileName1[i];
+    }
+    newfile1 += tests;
+    bool x = CopyFile(m_fileName1, newfile1, false);
+    m_fileName1 = newfile1;
+
+    CString newfile2 = path;
+    newfile2 += "2";
+    int fileFomart2 = m_fileName2.ReverseFind('.');
+    CString tests2;
+    for (int i = fileFomart2; i < m_fileName2.GetLength(); ++i) {
+        tests2 += m_fileName2[i];
+    }
+    newfile2 += tests2;
+    x = CopyFile(m_fileName2, newfile2, false);
+    m_fileName2 = newfile2;
 }
 
 void CExcelCompareDlg::loadFile1() {
@@ -474,7 +490,7 @@ void CExcelCompareDlg::OnBnClickedCancel2()
 {
     // TODO: 在此添加控件通知处理程序代码
     CString title("关于帮助");
-    CString content("1open 打开两个文件的路径\n2填入主键,比较值，对于sheet名字\n3点击开始比较查看结果");
+    CString content("1open 打开两个文件的路径\n2填入主键,比较值，对应sheet名字\n3点击开始比较查看结果");
     MessageBox(content, title);
 }
 

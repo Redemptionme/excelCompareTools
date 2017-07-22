@@ -40,6 +40,7 @@ public:
     void initData();
     void doCompare();
     bool checkFileExist();
+    void makeTempFile();
     void loadFile1();
     void loadFile2();
     void test();
